@@ -28,6 +28,9 @@ export class Game extends Engine {
         const background = new Background(0);
         this.add(background);
         this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
+
+        const background2 = new Background(1280);
+        this.add(background2);
     }
 }
 new Game()
