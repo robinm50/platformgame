@@ -12,6 +12,7 @@ export class Player extends Actor {
             width: Resources.Player.width, height: Resources.Player.height,
 
         });
+        this.z = 1;
         this.scale = new Vector(0.4, 0.4);
 
         this.body.useGravity = true;

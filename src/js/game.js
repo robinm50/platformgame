@@ -22,12 +22,12 @@ export class Game extends Engine {
     }
 
     startGame() {
-        this.player = new Player();
-        this.add(this.player);
+        const player = new Player();
+        this.add(player);
 
-         const background = new Background(0);
+        const background = new Background(0);
         this.add(background);
-        this.currentScene.camera.strategy.lockToActorAxis(this.player, Axis.Y)
+        this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
     }
 }
 new Game()

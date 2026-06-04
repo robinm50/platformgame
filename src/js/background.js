@@ -5,9 +5,10 @@ export class Background extends Actor {
     constructor(x) {
         super()
         this.pos = vec(x, 0);
+         this.z = 0;
         this.anchor = new Vector(0, 0.23)
     }
-    
+
     onInitialize(engine) {
         this.graphics.use(Resources.bg.toSprite());
         this.body.collisionType = CollisionType.Fixed;
