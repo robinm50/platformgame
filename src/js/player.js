@@ -1,10 +1,11 @@
 
 import { Resources } from "./resources";
-// import { Background } from "./background";
+ import { Background } from "./background";
 import { Actor, CollisionType, DegreeOfFreedom, Keys, SolverStrategy, Vector } from "excalibur";
 
 export class Player extends Actor {
     maxSpeed = 200;
+    speed= 15;
     grounded = false;
     constructor() {
 
@@ -14,10 +15,10 @@ export class Player extends Actor {
         });
         this.z = 1;
         this.scale = new Vector(0.4, 0.4);
-
+this.body.mass= 7;
         this.body.useGravity = true;
         this.body.collisionType = CollisionType.Active;
-        this.body.friction = 1;
+       
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
 
     }
@@ -46,13 +47,13 @@ export class Player extends Actor {
         }
 
         if (engine.input.keyboard.isHeld(Keys.Left)) {
-            this.body.applyLinearImpulse(new Vector(-50 * delta, 0))
+            this.body.applyLinearImpulse(new Vector(-this.speed * delta, 0))
 
 
 
         }
         if (engine.input.keyboard.isHeld(Keys.Right)) {
-            this.body.applyLinearImpulse(new Vector(50 * delta, 0))
+         this.body.applyLinearImpulse(new Vector(this.speed * delta, 0))
 
 
         }

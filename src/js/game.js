@@ -3,6 +3,7 @@ import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Axis } from "excali
 import { Resources, ResourceLoader } from './resources.js'
 import { Player } from './player.js'
 import { Background } from './background.js'
+import { Enemy } from './enemy.js'
 
 export class Game extends Engine {
 
@@ -14,7 +15,8 @@ export class Game extends Engine {
             displayMode: DisplayMode.FitScreen,
             physics: {
                 solver: SolverStrategy.realistic,
-                // gravity: new Vector(0, 1000)
+                 gravity: new Vector(0, 1000),
+              
             }
         });
 
@@ -29,8 +31,11 @@ export class Game extends Engine {
         this.add(background);
         this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
 
-        const background2 = new Background(1280);
-        this.add(background2);
+        // const background2 = new Background(1280);
+        // this.add(background2);
+
+        const enemy = new Enemy();
+        this.add(enemy);
     }
 }
 new Game()

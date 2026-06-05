@@ -5,6 +5,7 @@ const Resources = {
     // Fish: new ImageSource('images/fish.png'),
  Player: new ImageSource('images/player.png'),
     bg: new ImageSource('images/background.png'),
+    enemy: new ImageSource('images/enemy.png')
 
 }
 
