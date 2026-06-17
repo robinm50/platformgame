@@ -12,7 +12,7 @@ export class Background extends Actor {
     onInitialize(engine) {
         this.graphics.use(Resources.bg.toSprite());
         this.body.collisionType = CollisionType.Fixed;
-        const hitbox = Shape.Box(4000, 70, Vector.Half, new Vector(-700, 700))
+        const hitbox = Shape.Box(1536, 70, Vector.Half, new Vector(768, 700))
         this.collider.set(hitbox)
     }
 }

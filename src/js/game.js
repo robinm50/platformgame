@@ -15,8 +15,8 @@ export class Game extends Engine {
             displayMode: DisplayMode.FitScreen,
             physics: {
                 solver: SolverStrategy.realistic,
-                 gravity: new Vector(0, 1000),
-              
+                gravity: new Vector(0, 1000),
+
             }
         });
 
@@ -26,16 +26,17 @@ export class Game extends Engine {
     startGame() {
         const player = new Player();
         this.add(player);
-
-        const background = new Background(0);
+        const background = new Background(-2286);
         this.add(background);
+        const background1 = new Background(-750);
+        this.add(background1);
         this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
 
-        // const background2 = new Background(1280);
-        // this.add(background2);
+        const background2 = new Background(786);
+        this.add(background2);
 
-        const enemy = new Enemy();
-        this.add(enemy);
+        // const enemy = new Enemy();
+        // this.add(enemy);
     }
 }
 new Game()
