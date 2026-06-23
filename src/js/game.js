@@ -35,8 +35,8 @@ export class Game extends Engine {
         const background2 = new Background(786);
         this.add(background2);
 
-        // const enemy = new Enemy();
-        // this.add(enemy);
+        const enemy = new Enemy();
+        this.add(enemy);
     }
 }
 new Game()
