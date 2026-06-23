@@ -24,7 +24,7 @@ export class Game extends Engine {
     }
 
     startGame() {
-        const player = new Player();
+        const player = new Player(-100);
         this.add(player);
         const background = new Background(-2286);
         this.add(background);
@@ -35,7 +35,7 @@ export class Game extends Engine {
         const background2 = new Background(786);
         this.add(background2);
 
-        const enemy = new Enemy();
+        const enemy = new Enemy(800);
         this.add(enemy);
     }
 }
