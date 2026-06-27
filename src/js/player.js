@@ -1,7 +1,7 @@
 
 import { Resources } from "./resources";
 import { Background } from "./background";
-import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, SolverStrategy, SpriteSheet, Vector,range} from "excalibur";
+import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, SolverStrategy, SpriteSheet, Vector, range } from "excalibur";
 
 export class Player extends Actor {
     maxSpeed = 200;
@@ -12,16 +12,20 @@ export class Player extends Actor {
 
         super({
             // width: Resources.Player.width, height: Resources.Player.height
-            width: 422, height: 686
+            width: 420, height: 692
         })
         const playerWalk = SpriteSheet.fromImageSource({
             image: Resources.playerWalk,
-            grid: { rows: 3, columns: 3, spriteWidth: 422, spriteHeight: 686 }
+            grid: { rows: 4, columns: 4, spriteWidth: 420, spriteHeight: 692 }
         })
-        const idle = playerWalk.sprites[0]
-        const walk = Animation.fromSpriteSheet(playerWalk, range(1,8),100)
+        const idle = playerWalk.sprites[6]
+        const walkRight = Animation.fromSpriteSheet(playerWalk, range(0, 15), 100)
+        const walkLeft = walkRight.clone()
+        walkLeft.flipHorizontal = true
+        
         this.graphics.add("idle", idle)
-        this.graphics.add("walk", walk)
+        this.graphics.add("walkright", walkRight)
+         this.graphics.add("walkleft", walkLeft)
         this.graphics.use("idle")
 
         this.z = 1;
@@ -47,7 +51,7 @@ export class Player extends Actor {
     }
 
     onPreUpdate(engine, delta) {
- this.graphics.use("idle")
+        this.graphics.use("idle")
         if (this.vel.x > this.maxSpeed) {
             this.vel.x = this.maxSpeed;
         }
@@ -57,10 +61,10 @@ export class Player extends Actor {
 
         if (engine.input.keyboard.isHeld(Keys.Left)) {
             this.body.applyLinearImpulse(new Vector(-this.speed * delta, 0))
-            this.graphics.use("walk")
+            this.graphics.use("walkleft")
         } else if (engine.input.keyboard.isHeld(Keys.Right)) {
             this.body.applyLinearImpulse(new Vector(this.speed * delta, 0))
-             this.graphics.use("walk")
+            this.graphics.use("walkright")
         } else {
             this.vel.x = 0;
         }

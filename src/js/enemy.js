@@ -1,22 +1,32 @@
 import { Player } from "./player";
 import { Resources } from "./resources";
-import { Actor, CollisionType, DegreeOfFreedom, Keys, Side, SolverStrategy, Vector } from "excalibur";
+import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, range, Side, SolverStrategy, SpriteSheet, Vector } from "excalibur";
 
 export class Enemy extends Actor {
     constructor() {
         super({
-            width: Resources.enemy.width, height: Resources.enemy.height,
-            
+            // width: Resources.enemy.width, height: Resources.enemy.height,
+            width: 594, height: 578
         });
-        this.scale = new Vector(0.6, 0.6);
+        this.scale = new Vector(0.25, 0.25);
         this.body.useGravity = true;
         this.body.collisionType = CollisionType.Active;
         this.body.friction = 1;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
+        
+        const enemyWalk = SpriteSheet.fromImageSource({
+          image: Resources.enemy,
+          grid:{ rows: 4, columns: 4, spriteWidth:594, spriteHeight: 578}
+        })
+        const idle = enemyWalk.sprites[6]
+        const walkRight = Animation.fromSpriteSheet(enemyWalk, range(0,15),100)
+        this.graphics.add("idle",idle)
+        this.graphics.add("walkRight", walkRight)
+        this.graphics.use("idle")
     }
     onInitialize(engine) {
 
-        this.graphics.use(Resources.enemy.toSprite());
+        // this.graphics.use(Resources.enemy.toSprite());
 
     }
 onCollisionStart(self, other, side) {
