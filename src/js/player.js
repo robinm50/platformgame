@@ -72,7 +72,7 @@ export class Player extends Actor {
 
 
         if (engine.input.keyboard.wasPressed(Keys.Up) && this.grounded) {
-            this.body.applyLinearImpulse(new Vector(0, -250 * delta))
+            this.body.applyLinearImpulse(new Vector(0, -260 * delta))
             this.grounded = false;
         }
 

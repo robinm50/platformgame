@@ -4,9 +4,11 @@ import { Resources, ResourceLoader } from './resources.js'
 import { Player } from './player.js'
 import { Background } from './background.js'
 import { Enemy } from './enemy.js'
+import { UI } from './scenes/ui.js'
+import { levelOne } from './scenes/levelone.js'
 
 export class Game extends Engine {
-
+ui
     constructor() {
         super({
             width: 1280,
@@ -24,19 +26,25 @@ export class Game extends Engine {
     }
 
     startGame() {
-        const player = new Player(-100);
-        this.add(player);
-        const background = new Background(-2286);
-        this.add(background);
-        const background1 = new Background(-750);
-        this.add(background1);
-        this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
+        this.addScene("levelone", new levelOne());
+        this.goToScene("levelone");
+        // this.ui=new UI()
+        // this.add(this.ui)
 
-        const background2 = new Background(786);
-        this.add(background2);
+        // const player = new Player(-100);
+        // this.add(player);
+        // const background = new Background(-2286);
+        // this.add(background);
+        // const background1 = new Background(-750);
+        // this.add(background1);
+        // this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
 
-        const enemy = new Enemy(800);
-        this.add(enemy);
+        // const background2 = new Background(786);
+        // this.add(background2);
+
+        // const enemy = new Enemy(800);
+        // this.add(enemy);
+
     }
 }
 new Game()

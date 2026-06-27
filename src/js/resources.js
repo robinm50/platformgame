@@ -5,8 +5,8 @@ const Resources = {
     playerWalk: new ImageSource('images/player_walk1.png'),
     // Player: new ImageSource('images/player.png'),
     bg: new ImageSource('images/background2.png'),
-    enemy: new ImageSource('images/enemy_walk.png')
-
+    enemy: new ImageSource('images/enemy_walk.png'),
+    heart: new ImageSource('images/heart.png')
 }
 
 
