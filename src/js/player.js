@@ -55,11 +55,8 @@ export class Player extends Actor {
             console.log("Player is grounded");
         }
         }
-    }
-    onCollisionEnd(self, other, side) {
-    if ((other.owner instanceof Background || other.owner instanceof Platform) && side === Side.Bottom) {
-        this.grounded = false;
-    }
+    
+   
 }
 
 
