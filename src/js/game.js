@@ -16,7 +16,7 @@ ui
             maxFps: 60,
             displayMode: DisplayMode.FitScreen,
             physics: {
-                solver: SolverStrategy.realistic,
+                solver: SolverStrategy.Realistic,
                 gravity: new Vector(0, 1000),
 
             }

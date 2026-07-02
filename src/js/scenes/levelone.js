@@ -5,11 +5,12 @@ import { Player } from "../player";
 import { Resources } from "../resources";
 import { Background } from "../background";
 import { Enemy } from "../enemy";
+import { Platform } from "../platform";
 
 export class levelOne extends Scene {
     ui
     onInitialize(engine) {
-        this.ui=new UI()
+        this.ui = new UI()
         this.add(this.ui)
 
         const player = new Player(-100);
@@ -23,8 +24,11 @@ export class levelOne extends Scene {
         const background2 = new Background(786);
         this.add(background2);
 
-        const enemy = new Enemy(800);
-        this.add(enemy);
+        const platform = new Platform(300, 600);
+        this.add(platform);
+
+        // const enemy = new Enemy(800);
+        // this.add(enemy);
     }
 
 
