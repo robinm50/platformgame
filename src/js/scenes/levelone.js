@@ -9,7 +9,7 @@ import { Platform } from "../platform";
 import { Coin } from "../coin";
 
 export class levelOne extends Scene {
-    ui
+    ui;
     onInitialize(engine) {
         this.ui = new UI()
         this.add(this.ui)
@@ -28,7 +28,7 @@ export class levelOne extends Scene {
         const platform = new Platform(300, 600);
         this.add(platform);
 
-        const enemy = new Enemy(1000,550);
+        const enemy = new Enemy(100,550);
         this.add(enemy);
 
         const coin = new Coin(0,500);
