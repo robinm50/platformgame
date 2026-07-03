@@ -3,11 +3,12 @@ import { Resources } from "./resources";
 import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, range, Side, SolverStrategy, SpriteSheet, Vector } from "excalibur";
 
 export class Enemy extends Actor {
-    constructor() {
+    constructor(x,y) {
         super({
             // width: Resources.enemy.width, height: Resources.enemy.height,
             width: 594, height: 578
         });
+         this.pos = new Vector(x, y);
         this.scale = new Vector(0.25, 0.25);
         this.body.useGravity = true;
         this.body.collisionType = CollisionType.Active;
