@@ -1,14 +1,16 @@
+import { IgnoreGroup } from "./coin";
 import { Player } from "./player";
 import { Resources } from "./resources";
 import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, range, Side, SolverStrategy, SpriteSheet, Vector } from "excalibur";
 
 export class Enemy extends Actor {
 
-  constructor(x, y) {
+  constructor(x, y, minX, maxX) {
     super({
       // width: Resources.enemy.width, height: Resources.enemy.height,
       width: 500, height: 500
     });
+    this.body.group = IgnoreGroup;
     this.spawnPos = new Vector(x, y);
     this.pos = new Vector(x, y);
     this.scale = new Vector(0.25, 0.25);
@@ -16,7 +18,13 @@ export class Enemy extends Actor {
     this.body.collisionType = CollisionType.Active;
     this.body.friction = 1;
     this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
-  
+    this.speed = 70;
+    this.direction = 1;
+    this.minX = minX
+    this.maxX = maxX
+    this.body.mass= 10;
+    this.z=1
+
 
     const enemyWalk = SpriteSheet.fromImageSource({
       image: Resources.enemy,
@@ -29,32 +37,33 @@ export class Enemy extends Actor {
     this.graphics.use("idle")
   }
   onInitialize(engine) {
-
+    this.vel = new Vector(this.speed * this.direction, 0);
     // this.graphics.use(Resources.enemy.toSprite());
 
   }
-  reset(scene) {
-    this.pos = this.spawnPos.clone();
-    this.vel = new Vector(0, 0);
-if (this.isKilled()){
-  this.unkill();
-}
-    this.body.collisionType = CollisionType.Active;
-    this.graphics.use("idle");
-if (!this.scene && scene) {
-      scene.add(this);
+
+  onPreUpdate(engine) {
+    if (this.pos.x <= this.minX) {
+      this.direction = 1;
+    } else if (this.pos.x >= this.maxX) {
+      this.direction = -1;
     }
+    this.vel = new Vector(this.speed * this.direction, 0);
   }
-  // this.alive = true;
-  // this.graphics.visible = true;
-  // this.body.collisionType = CollisionType.Active;
+
+reset(scene) {
+  this.pos = this.spawnPos.clone();
+  this.vel = new Vector(0, 0);
+
+  this.body.collisionType = CollisionType.Active;
+  this.graphics.use("idle");
+  if (!this.scene && scene) {
+    scene.add(this);
+  }
+}
 
 
-// die() {
-//   this.alive = false;
-//   this.graphics.visible = false;
-//   this.body.collisionType = CollisionType.PreventCollision;
-// }
+
 
 onCollisionStart(self, other, side) {
   if (other.owner instanceof Player) {

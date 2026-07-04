@@ -78,9 +78,13 @@ export class Player extends Actor {
 
 
     onPreUpdate(engine) {
-        if (this.pos.y >700 ) { 
+        if (this.pos.x >4600 ) { 
         engine.goToScene("gameover");
     }
+        if(this.pos.x< -30){
+engine.goToScene("gameover");
+        }
+    
         let Xspeed = 0;
         this.graphics.use("idle")
         if (this.vel.x > this.maxSpeed) {
@@ -105,7 +109,7 @@ export class Player extends Actor {
 
         if (engine.input.keyboard.wasPressed(Keys.Up) && this.grounded) {
             // this.body.applyLinearImpulse(new Vector(0, this.speed ))
-            this.vel.y = -600;
+            this.vel.y = -750;
             this.grounded = false;
         }
 

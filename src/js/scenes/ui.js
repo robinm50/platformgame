@@ -45,6 +45,7 @@ export class UI extends ScreenElement {
         if (this.hearts.length === 0) {
             this.engine.goToScene("gameover");
             console.log("Game Over!");
+             localStorage.setItem("highscore", this.score)  ;
         }
     }
     resetlevel() {
@@ -52,5 +53,6 @@ export class UI extends ScreenElement {
         this.hearts = [];
         this.scoreLabel.kill();
         this.createUI();
+     
     }
 }

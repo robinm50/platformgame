@@ -24,18 +24,12 @@ export class Gameover extends Scene {
         restartLabel.anchor = new Vector(0.5, 0.5);
         this.add(restartLabel);
     }
-    onActivate(context) {
-        const engine = context.engine;
-        this.keyHandler = (evt) => {
-            if (evt.key === Keys.Enter) {
-                engine.goToScene("levelone");
-            }
-        };
-        engine.input.keyboard.on('press', this.keyHandler);
+    onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Enter)) {
+
+            engine.goToScene('levelone');
+        }
     }
 
-    onDeactivate(context) {
-        const engine = context.engine;
-        engine.input.keyboard.off('press', this.keyHandler);
-    }
+    
 }

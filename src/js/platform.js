@@ -15,10 +15,11 @@ export class Platform extends Actor {
         
 // this.body.bounciness = 0;
 // this.body.friction = 1;
-        this.graphics.use(Resources.platform.toSprite());
+const sprite =Resources.platform.toSprite()
+        this.graphics.use(sprite);
 
        
-        const hitbox = Shape.Box(800,125 , Vector.Half, new Vector(0,30));
+        const hitbox = Shape.Box(800,100 , Vector.Half, new Vector(0,20));
         this.collider.set(hitbox);
     }
 }

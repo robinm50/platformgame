@@ -1,6 +1,6 @@
 import { Color, Font, Keys, Label, Scene, Vector, Keyboard } from "excalibur";
-export class Winscene extends Scene{
-onInitialize(engine) {
+export class Winscene extends Scene {
+    onInitialize(engine) {
         const label = new Label({
             text: "You Win!",
             x: engine.drawWidth / 2,
@@ -20,18 +20,12 @@ onInitialize(engine) {
         this.add(restartLabel);
     }
 
-    onActivate(context) {
-         const engine = context.engine;
-        this.keyHandler = (evt) => {
-            if (evt.key === Keys.Enter) {
-                engine.goToScene("levelone");
-            }
-        };
-        engine.input.keyboard.on('press', this.keyHandler);
+    
+    onPreUpdate(engine) {
+        if (engine.input.keyboard.wasPressed(Keys.Enter)) {
+
+            engine.goToScene('levelone');
+        }
     }
 
-    onDeactivate(context) {
-         const engine = context.engine;
-        engine.input.keyboard.off('press', this.keyHandler);
-    }
 }

@@ -8,6 +8,8 @@ import { UI } from './scenes/ui.js'
 import { levelOne } from './scenes/levelone.js'
 import { Gameover } from './scenes/gameover.js'
 import { Winscene } from './scenes/winscene.js'
+import { Startscene } from './scenes/startscene.js'
+
 
 export class Game extends Engine {
 ui
@@ -28,10 +30,11 @@ ui
     }
 
     startGame() {
+        this.addScene("startscene", new Startscene());
         this.addScene("levelone", new levelOne());
         this.addScene("gameover", new Gameover());
         this.addScene("winscene", new Winscene());
-        this.goToScene("levelone");
+        this.goToScene("startscene");
         // this.ui=new UI()
         // this.add(this.ui)
 
