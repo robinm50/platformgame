@@ -7,6 +7,7 @@ import { Background } from "../background";
 import { Enemy } from "../enemy";
 import { Platform } from "../platform";
 import { Coin } from "../coin";
+import { Goal } from "../goal";
 
 export class levelOne extends Scene {
     ui;
@@ -14,29 +15,30 @@ export class levelOne extends Scene {
         this.ui = new UI()
         this.add(this.ui)
 
-        const player = new Player(-400, 550);
+        const player = new Player(768, 550);
         this.add(player);
-        const background = new Background(-2286);
+        const background = new Background(0);
         this.add(background);
-        const background1 = new Background(-750);
+        const background1 = new Background(1536);
         this.add(background1);
         this.camera.strategy.lockToActorAxis(player, Axis.X);
 
-        const background2 = new Background(786);
+        const background2 = new Background(3072);
         this.add(background2);
 
-        const platform = new Platform(300, 600);
+        const platform = new Platform(600, 600);
         this.add(platform);
 
-        const enemy = new Enemy(100,550);
+        const enemy = new Enemy(600,550);
         this.add(enemy);
 
-        const coin = new Coin(0,500);
+        const coin = new Coin(300,500);
         this.add(coin);
+
+        const goal = new Goal(1200, 640);
+        this.add(goal);
     }
 
 
-    startGame() {
-
-    }
+    
 }

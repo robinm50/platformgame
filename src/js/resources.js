@@ -7,7 +7,8 @@ const Resources = {
     enemy: new ImageSource('images/enemy_walk.png'),
     heart: new ImageSource('images/heart.png'),
     platform: new ImageSource('images/plaform big.png'),
-    coin: new ImageSource('images/munt.png')
+    coin: new ImageSource('images/coin.png'),
+    goal: new ImageSource('images/goal.png')
 }
 
 

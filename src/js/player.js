@@ -3,17 +3,17 @@ import { Resources } from "./resources";
 import { Background } from "./background";
 import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, Side, SolverStrategy, SpriteSheet, Vector, range } from "excalibur";
 import { Platform } from "./platform";
+import { Enemy } from "./enemy";
 
 export class Player extends Actor {
     maxSpeed = 200;
     speed = 200;
     grounded = false;
-
     constructor(x, y) {
 
         super({
             // width: Resources.Player.width, height: Resources.Player.height
-            width: 420, height: 692
+            width: 400, height: 692
 
         })
         const playerWalk = SpriteSheet.fromImageSource({
@@ -58,12 +58,22 @@ export class Player extends Actor {
                 console.log("Player is grounded");
             }
         }
-
-
+        if (other.owner instanceof Enemy) {
+            if (side !== Side.Bottom) {
+                const ui = this.scene.ui;
+                if (ui) {
+                    ui.loselife();
+                }
+                console.log("Player collided with enemy");
+            }
+        }
     }
 
 
     onPreUpdate(engine, delta) {
+        if (this.pos.y >650 ) { 
+        engine.goToScene("gameover");
+    }
         let Xspeed = 0;
         this.graphics.use("idle")
         if (this.vel.x > this.maxSpeed) {

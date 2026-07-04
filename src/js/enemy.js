@@ -6,7 +6,7 @@ export class Enemy extends Actor {
     constructor(x,y) {
         super({
             // width: Resources.enemy.width, height: Resources.enemy.height,
-            width: 594, height: 578
+            width: 500, height: 500
         });
          this.pos = new Vector(x, y);
         this.scale = new Vector(0.25, 0.25);
