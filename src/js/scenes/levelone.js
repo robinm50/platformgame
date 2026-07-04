@@ -1,5 +1,5 @@
 import { BoundingBox, Scene } from "excalibur";
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Axis } from "excalibur"
+import {  Vector } from "excalibur"
 import { UI } from "./ui";
 import { Player } from "../player";
 import { Resources } from "../resources";
@@ -11,7 +11,6 @@ import { Goal } from "../goal";
 
 export class levelOne extends Scene {
     ui;
-    enemy;
     enemies = [];
     coins = [];
     onInitialize(engine) {

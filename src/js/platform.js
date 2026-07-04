@@ -13,8 +13,7 @@ export class Platform extends Actor {
 
     onInitialize(engine) {
         
-// this.body.bounciness = 0;
-// this.body.friction = 1;
+
 const sprite =Resources.platform.toSprite()
         this.graphics.use(sprite);
 

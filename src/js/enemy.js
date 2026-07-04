@@ -1,7 +1,7 @@
 import { IgnoreGroup } from "./coin";
 import { Player } from "./player";
 import { Resources } from "./resources";
-import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, range, Side, SolverStrategy, SpriteSheet, Vector } from "excalibur";
+import { Actor, Animation, CollisionType, DegreeOfFreedom,  range, Side,  SpriteSheet, Vector } from "excalibur";
 
 export class Enemy extends Actor {
 
@@ -16,13 +16,11 @@ export class Enemy extends Actor {
     this.scale = new Vector(0.25, 0.25);
     this.body.useGravity = true;
     this.body.collisionType = CollisionType.Active;
-    // this.body.friction = 1;
     this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
     this.speed = 70;
     this.direction = 1;
     this.minX = minX
     this.maxX = maxX
-    // this.body.mass= 10;
     this.z=1
 
 

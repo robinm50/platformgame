@@ -1,7 +1,7 @@
 import { Actor, CollisionGroupManager, CollisionType, DegreeOfFreedom, Shape, Vector } from "excalibur";
 import { Resources } from "./resources";
 import { Player } from "./player";
-import { UI } from "./scenes/ui";
+// import { UI } from "./scenes/ui";
 export const IgnoreGroup = CollisionGroupManager.create("ignore-enemy-coin");
 export class Coin extends Actor {
 
@@ -19,12 +19,7 @@ export class Coin extends Actor {
         this.pos = new Vector(x, y);
         this.spawnPos = new Vector(x, y);
     }
-onInitialize(engine){
-    //  const width = Resources.coin.width * this.scale.x*6;
-    //     const height = Resources.coin.height * this.scale.y*6;
-    //     const hitbox = Shape.Box(width, height, Vector.Half);
-    //     this.collider.set(hitbox);
-}
+
     onCollisionStart(self, other) {
         if (other.owner instanceof Player) {
             const ui = this.scene.ui;

@@ -1,7 +1,7 @@
 
 import { Resources } from "./resources";
 import { Background } from "./background";
-import { Actor, Animation, CollisionContact, CollisionType, DegreeOfFreedom, Keys, Side, SolverStrategy, SpriteSheet, Vector, range } from "excalibur";
+import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, Side, SpriteSheet, Vector, range } from "excalibur";
 import { Platform } from "./platform";
 import { Enemy } from "./enemy";
 

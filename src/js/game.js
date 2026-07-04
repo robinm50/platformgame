@@ -1,10 +1,10 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Axis } from "excalibur"
-import { Resources, ResourceLoader } from './resources.js'
+import { Engine, Vector, DisplayMode, SolverStrategy} from "excalibur"
+import {  ResourceLoader } from './resources.js'
 import { Player } from './player.js'
-import { Background } from './background.js'
-import { Enemy } from './enemy.js'
-import { UI } from './scenes/ui.js'
+// import { Background } from './background.js'
+// import { Enemy } from './enemy.js'
+// import { UI } from './scenes/ui.js'
 import { levelOne } from './scenes/levelone.js'
 import { Gameover } from './scenes/gameover.js'
 import { Winscene } from './scenes/winscene.js'
@@ -35,23 +35,7 @@ ui
         this.addScene("gameover", new Gameover());
         this.addScene("winscene", new Winscene());
         this.goToScene("startscene");
-        // this.ui=new UI()
-        // this.add(this.ui)
-
-        // const player = new Player(-100);
-        // this.add(player);
-        // const background = new Background(-2286);
-        // this.add(background);
-        // const background1 = new Background(-750);
-        // this.add(background1);
-        // this.currentScene.camera.strategy.lockToActorAxis(player, Axis.X);
-
-        // const background2 = new Background(786);
-        // this.add(background2);
-
-        // const enemy = new Enemy(800);
-        // this.add(enemy);
-
+       
     }
 }
 new Game()

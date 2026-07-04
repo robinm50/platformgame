@@ -1,6 +1,6 @@
-import { Actor, Color, Font, FontUnit, Label, ScreenElement, Text, Vector } from "excalibur";
+import { Actor, Color, Font, Label, ScreenElement, Vector } from "excalibur";
 import { Resources } from "../resources";
-import { Gameover } from "./gameover";
+
 
 export class UI extends ScreenElement {
 

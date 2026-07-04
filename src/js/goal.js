@@ -1,7 +1,7 @@
 import { Actor, Vector } from "excalibur";
 import { Resources } from "./resources";
 import { Player } from "./player";
-import{ Winscene } from "./scenes/winscene";
+
 
 export class Goal extends Actor {
     constructor(x, y) {
@@ -19,11 +19,10 @@ export class Goal extends Actor {
     }
     onCollisionStart(self, other) {
         if (other.owner instanceof Player) {
-            console.log("Goal reached by player!");
+            // console.log("Goal reached by player!");
   
             const ui= this.scene.ui;
-             console.log("ui gevonden:", ui);          // check dit
-        console.log("huidige score:", ui?.score); 
+                    console.log("huidige score:", ui?.score); 
             if(ui){
                 ui.saveHighscore();
             }
