@@ -1,11 +1,14 @@
 import { Actor, Color, Font, FontUnit, Label, ScreenElement, Text, Vector } from "excalibur";
 import { Resources } from "../resources";
-import{Gameover} from "./gameover";
+import { Gameover } from "./gameover";
 
 export class UI extends ScreenElement {
-    
+
     onInitialize(engine) {
-          this.engine = engine;
+        this.engine = engine;
+        this.createUI();
+    }
+    createUI() {
         this.score = 0;
         this.scoreLabel = new Label({
             text: `Score: ${this.score}`,
@@ -43,5 +46,11 @@ export class UI extends ScreenElement {
             this.engine.goToScene("gameover");
             console.log("Game Over!");
         }
+    }
+    resetlevel() {
+        this.hearts.forEach(heart => heart.kill());
+        this.hearts = [];
+        this.scoreLabel.kill();
+        this.createUI();
     }
 }

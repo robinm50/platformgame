@@ -1,7 +1,7 @@
 
 import { Resources } from "./resources";
 import { Background } from "./background";
-import { Actor, Animation, CollisionType, DegreeOfFreedom, Keys, Side, SolverStrategy, SpriteSheet, Vector, range } from "excalibur";
+import { Actor, Animation, CollisionContact, CollisionType, DegreeOfFreedom, Keys, Side, SolverStrategy, SpriteSheet, Vector, range } from "excalibur";
 import { Platform } from "./platform";
 import { Enemy } from "./enemy";
 
@@ -16,6 +16,7 @@ export class Player extends Actor {
             width: 400, height: 692
 
         })
+        this.spawnPos = new Vector(x, y);
         const playerWalk = SpriteSheet.fromImageSource({
             image: Resources.playerWalk,
             grid: { rows: 4, columns: 4, spriteWidth: 420, spriteHeight: 692 }
@@ -48,7 +49,13 @@ export class Player extends Actor {
 
     }
 
+ reset() {
+        this.pos = this.spawnPos.clone();
+        this.vel = new Vector(0, 0);
+        // this.grounded = false;
+    }
 
+    
     onCollisionStart(self, other, side) {
 
         if (other.owner instanceof Background || other.owner instanceof Platform) {
@@ -70,8 +77,8 @@ export class Player extends Actor {
     }
 
 
-    onPreUpdate(engine, delta) {
-        if (this.pos.y >650 ) { 
+    onPreUpdate(engine) {
+        if (this.pos.y >700 ) { 
         engine.goToScene("gameover");
     }
         let Xspeed = 0;

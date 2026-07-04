@@ -15,16 +15,27 @@ export class Coin extends Actor {
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
         this.pos = new Vector(x, y);
+        this.spawnPos = new Vector(x, y);
     }
 
     onCollisionStart(self, other) {
-        if(other.owner instanceof Player) {
-             const ui = this.scene.ui;
+        if (other.owner instanceof Player) {
+            const ui = this.scene.ui;
             console.log("Coin collected by player!");
             this.kill();
-            
+
             ui.addScore(10);
         }
     }
-    
+    reset(scene) {
+        this.pos = this.spawnPos.clone();
+        this.vel = new Vector(0, 0);
+        if (this.isKilled()) {
+            // this.unkill();
+        }
+        this.body.collisionType = CollisionType.Active;
+        if (!this.scene && scene) {
+            scene.add(this);
+        }
+    }
 }
