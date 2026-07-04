@@ -49,6 +49,7 @@ export class UI extends ScreenElement {
     }
     addScore(amount) {
         this.score += amount;
+        this.engine.score = this.score;
         this.scoreLabel.text = `Score: ${this.score}`;
     }
 
