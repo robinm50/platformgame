@@ -10,8 +10,7 @@ export class Winscene extends Scene {
         label.anchor = new Vector(0.5, 0.5);
         this.add(label);
 
-        const highscore = localStorage.getItem("highscore") || 0;
-
+       const highscore = Number(localStorage.getItem("highscore")) || 0;
         const highscoreLabel = new Label({
             text: `Highscore: ${highscore}`,
             x: engine.drawWidth / 2,

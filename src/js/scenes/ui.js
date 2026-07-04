@@ -24,17 +24,7 @@ export class UI extends ScreenElement {
         })
         this.addChild(this.scoreLabel)
 
-        // this.highscoreLabel = new Label({
-        //     text: `Highscore: ${this.highscore}`,
-        //     x: 1150,
-        //     y: 80,
-        //     font: new Font({
-        //         size: 24,
-        //         color: Color.White,
-        //         family: 'sans-serif'
-        //     })
-        // })
-        // this.addChild(this.highscoreLabel)
+      
 
         this.hearts = [];
         for (let i = 0; i < 3; i++) {
@@ -68,7 +58,7 @@ export class UI extends ScreenElement {
         if (this.hearts.length === 0) {
             this.saveHighscore();
             this.engine.goToScene("gameover");
-            console.log("Game Over!");
+            // console.log("Game Over!");
         }
     }
     resetlevel() {

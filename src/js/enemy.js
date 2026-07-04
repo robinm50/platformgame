@@ -16,13 +16,13 @@ export class Enemy extends Actor {
     this.scale = new Vector(0.25, 0.25);
     this.body.useGravity = true;
     this.body.collisionType = CollisionType.Active;
-    this.body.friction = 1;
+    // this.body.friction = 1;
     this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
     this.speed = 70;
     this.direction = 1;
     this.minX = minX
     this.maxX = maxX
-    this.body.mass= 10;
+    // this.body.mass= 10;
     this.z=1
 
 
@@ -48,7 +48,7 @@ export class Enemy extends Actor {
     } else if (this.pos.x >= this.maxX) {
       this.direction = -1;
     }
-    this.vel = new Vector(this.speed * this.direction, 0);
+    this.vel.x = this.speed * this.direction;
   }
 
 reset(scene) {
