@@ -10,6 +10,8 @@ export class UI extends ScreenElement {
     }
     createUI() {
         this.score = 0;
+        this.highscore = Number(localStorage.getItem("highscore")) || 0;
+
         this.scoreLabel = new Label({
             text: `Score: ${this.score}`,
             x: 1150, // Horizontale positie
@@ -21,6 +23,18 @@ export class UI extends ScreenElement {
             })
         })
         this.addChild(this.scoreLabel)
+
+        // this.highscoreLabel = new Label({
+        //     text: `Highscore: ${this.highscore}`,
+        //     x: 1150,
+        //     y: 80,
+        //     font: new Font({
+        //         size: 24,
+        //         color: Color.White,
+        //         family: 'sans-serif'
+        //     })
+        // })
+        // this.addChild(this.highscoreLabel)
 
         this.hearts = [];
         for (let i = 0; i < 3; i++) {
@@ -38,21 +52,32 @@ export class UI extends ScreenElement {
         this.scoreLabel.text = `Score: ${this.score}`;
     }
 
+    saveHighscore() {
+        if (this.score > this.highscore) {
+            this.highscore = this.score;
+            localStorage.setItem("highscore", this.highscore);
+        }
+    }
+    
+
     loselife() {
         console.log("Player lost a life!");
         const heart = this.hearts.pop();
         heart.kill();
         if (this.hearts.length === 0) {
+            this.saveHighscore();
             this.engine.goToScene("gameover");
             console.log("Game Over!");
-             localStorage.setItem("highscore", this.score)  ;
         }
     }
     resetlevel() {
         this.hearts.forEach(heart => heart.kill());
         this.hearts = [];
         this.scoreLabel.kill();
+        // if (this.highscoreLabel) {
+        //     this.highscoreLabel.kill();
+        // }
         this.createUI();
-     
+
     }
 }

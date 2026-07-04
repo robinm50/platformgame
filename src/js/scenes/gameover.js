@@ -4,8 +4,8 @@ export class Gameover extends Scene {
     onInitialize(engine) {
         const gameOverText = new Label({
             text: "Game Over",
-            x: engine.DrawWidth/2,
-            y: engine.DrawHeight/2,
+            // x: engine.DrawWidth/2,
+            // y: engine.DrawHeight/2,
             color: Color.White,
             font: new Font({
                 size: 48,
@@ -15,10 +15,20 @@ export class Gameover extends Scene {
         gameOverText.anchor = new Vector(0.5, 0.5); // Center the label
         this.add(gameOverText);
     
+        const highscore = localStorage.getItem("highscore")||0;
+                const highscoreLabel = new Label({
+            text: `Highscore: ${highscore}`,
+            x: engine.drawWidth / 2,
+            y: engine.drawHeight / 2 + 40,
+            font: new Font({ size: 20, color: Color.White, family: 'sans-serif' })
+        });
+        highscoreLabel.anchor = new Vector(0.5, 0.5);
+        this.add(highscoreLabel);
+
         const restartLabel = new Label({
             text: "Druk op ENTER om opnieuw te beginnen",
-            x: engine.drawWidth / 2,
-            y: engine.drawHeight / 2 + 60,
+            x: engine.drawWidth / 1,
+            y: engine.drawHeight / 2 + 80,
             font: new Font({ size: 20, color: Color.White, family: 'sans-serif' })
         });
         restartLabel.anchor = new Vector(0.5, 0.5);

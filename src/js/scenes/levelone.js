@@ -40,9 +40,11 @@ export class levelOne extends Scene {
         this.addEnemy(900, 600, 800, 1600);
 
         this.addCoin(700, 400);
+        this.addCoin(600,400);
+        this.addCoin(800,400);
 
 
-        const goal = new Goal(3950, 640);
+        const goal = new Goal(2000, 640);
         this.add(goal);
 
     }

@@ -20,6 +20,14 @@ export class Goal extends Actor {
     onCollisionStart(self, other) {
         if (other.owner instanceof Player) {
             console.log("Goal reached by player!");
+  
+            const ui= this.scene.ui;
+             console.log("ui gevonden:", ui);          // check dit
+        console.log("huidige score:", ui?.score); 
+            if(ui){
+                ui.saveHighscore();
+            }
+
             this.engine.goToScene("winscene");
             
         }
