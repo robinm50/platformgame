@@ -44,22 +44,14 @@ export class Winscene extends Scene {
         restartLabel.anchor = new Vector(0.5, 0.5);
         this.add(restartLabel);
     }
-//   onActivate(context) {
-//       const score = context.engine.score ?? 0;
-//         const highscore = Number(localStorage.getItem("highscore")) || 0;
+  onActivate(context) {
+      const score = context.engine.score ?? 0;
+        const highscore = Number(localStorage.getItem("highscore")) || 0;
 
-//         this.scoreLabel.text = `Huidige score: ${score}`;
-//         this.highscoreLabel.text = `Highscore: ${highscore}`;
-//     }
-    onActivate(context) {
-    console.log("Winscene onActivate wordt uitgevoerd");
-    const score = context.engine.score ?? 0;
-    const highscore = Number(localStorage.getItem("highscore")) || 0;
-    console.log("gelezen score:", score, "gelezen highscore:", highscore);
-
-    this.scoreLabel.text = `Huidige score: ${score}`;
-    this.highscoreLabel.text = `Highscore: ${highscore}`;
-}
+        this.scoreLabel.text = `Huidige score: ${score}`;
+        this.highscoreLabel.text = `Highscore: ${highscore}`;
+    }
+  
 
     onPreUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Enter)) {

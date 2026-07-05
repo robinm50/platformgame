@@ -56,7 +56,7 @@ export class levelOne extends Scene {
         this.addCoin(2300, 100);
         this.addCoin(2500, 600);
         this.addCoin(2700, 600);
-        this.addCoin(3000, 580);
+        this.addCoin(3000, 600);
         this.addCoin(3400, 300);
         this.addCoin(3550, 600);
 
