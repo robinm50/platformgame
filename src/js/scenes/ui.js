@@ -10,6 +10,7 @@ export class UI extends ScreenElement {
     }
     createUI() {
         this.score = 0;
+        this.engine.score = this.score;
         this.highscore = Number(localStorage.getItem("highscore")) || 0;
 
         this.scoreLabel = new Label({
@@ -37,6 +38,7 @@ export class UI extends ScreenElement {
 
         }
     }
+
     addScore(amount) {
         this.score += amount;
         this.engine.score = this.score;

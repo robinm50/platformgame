@@ -16,24 +16,24 @@ export class Gameover extends Scene {
         this.add(gameOverText);
     
         const score = engine.score ?? 0;
-        const scoreLabel = new Label({
+        this.scoreLabel = new Label({
             text: `Huidige score: ${score}`,
             x: engine.drawWidth / 2,
             y: engine.drawHeight / 2 + 60,
             font: new Font({ size: 20, color: Color.White, family: 'sans-serif' })
         });
-        scoreLabel.anchor = new Vector(0.5, 0.5);
-        this.add(scoreLabel);
+        this.scoreLabel.anchor = new Vector(0.5, 0.5);
+        this.add(this.scoreLabel);
 
         const highscore = Number(localStorage.getItem("highscore")) || 0;
-        const highscoreLabel = new Label({
+        this.highscoreLabel = new Label({
             text: `Highscore: ${highscore}`,
             x: engine.drawWidth / 2,
             y: engine.drawHeight / 2 + 100,
             font: new Font({ size: 20, color: Color.White, family: 'sans-serif' })
         });
-        highscoreLabel.anchor = new Vector(0.5, 0.5);
-        this.add(highscoreLabel);
+        this.highscoreLabel.anchor = new Vector(0.5, 0.5);
+        this.add(this.highscoreLabel);
 
         const restartLabel = new Label({
             text: "Druk op ENTER om opnieuw te beginnen",
@@ -43,6 +43,13 @@ export class Gameover extends Scene {
         });
         restartLabel.anchor = new Vector(0.5, 0.5);
         this.add(restartLabel);
+    }
+    onActivate(context) {
+        const score = context.engine.score ?? 0;
+        const highscore = Number(localStorage.getItem("highscore")) || 0;
+
+        this.scoreLabel.text = `Huidige score: ${score}`;
+        this.highscoreLabel.text = `Highscore: ${highscore}`;
     }
     onPreUpdate(engine) {
         if (engine.input.keyboard.wasPressed(Keys.Enter)) {

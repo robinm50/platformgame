@@ -32,15 +32,15 @@ export class levelOne extends Scene {
 
         this.add(new Platform(600, 450));
         this.add(new Platform(1100, 300));
-        this.add(new Platform(1500, 450));
+        this.add(new Platform(1550, 450));
         this.add(new Platform(2130, 450));
         this.add(new Platform(2400, 200));
         this.add(new Platform(3500, 450));
 
         this.addEnemy(550, 400, 450, 900);
         this.addEnemy(900, 600, 800, 1600);
-        this.addEnemy(1000, 250, 1000, 1250)
-        this.addEnemy(1000, 250, 1000, 1800)
+        this.addEnemy(1000, 250, 1000, 1250);
+        this.addEnemy(1000, 250, 1000, 1800);
         this.addEnemy(1900, 600, 2000, 2300);
         setTimeout(() => this.addEnemy(2300, 0, 2000, 2600), 4000);
         this.addEnemy(2500, 600, 2300, 3350);
@@ -56,7 +56,7 @@ export class levelOne extends Scene {
         this.addCoin(2300, 100);
         this.addCoin(2500, 600);
         this.addCoin(2700, 600);
-        this.addCoin(3000, 450);
+        this.addCoin(3000, 600);
         this.addCoin(3400, 300);
         this.addCoin(3550, 600);
 
