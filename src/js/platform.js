@@ -18,7 +18,7 @@ const sprite =Resources.platform.toSprite()
         this.graphics.use(sprite);
 
        
-        const hitbox = Shape.Box(800,100 , Vector.Half, new Vector(0,20));
+        const hitbox = Shape.Box(800,10 , Vector.Half, new Vector(0,10));
         this.collider.set(hitbox);
     }
 }

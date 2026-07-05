@@ -1,5 +1,5 @@
 import { BoundingBox, Scene } from "excalibur";
-import {  Vector } from "excalibur"
+import { Vector } from "excalibur"
 import { UI } from "./ui";
 import { Player } from "../player";
 import { Resources } from "../resources";
@@ -32,18 +32,35 @@ export class levelOne extends Scene {
 
         this.add(new Platform(600, 450));
         this.add(new Platform(1100, 300));
-          this.add(new Platform(1500, 450));
+        this.add(new Platform(1500, 450));
+        this.add(new Platform(2130, 450));
+        this.add(new Platform(2400, 200));
+        this.add(new Platform(3500, 450));
 
-
-        this.addEnemy(500, 400, 400, 900);
+        this.addEnemy(550, 400, 450, 900);
         this.addEnemy(900, 600, 800, 1600);
+        this.addEnemy(1000, 250, 1000, 1250)
+        this.addEnemy(1000, 250, 1000, 1800)
+        this.addEnemy(1900, 600, 2000, 2300);
+        setTimeout(() => this.addEnemy(2300, 0, 2000, 2600), 4000);
+        this.addEnemy(2500, 600, 2300, 3350);
+        this.addEnemy(2000, 600, 2300, 3350);
+        this.addEnemy(3500, 600, 3350, 3650);
 
         this.addCoin(700, 400);
-        this.addCoin(600,400);
-        this.addCoin(800,400);
+        this.addCoin(900, 550);
+        this.addCoin(1000, 200);
+        this.addCoin(1500, 400);
+        this.addCoin(1500, 600);
+        this.addCoin(2000, 600);
+        this.addCoin(2300, 100);
+        this.addCoin(2500, 600);
+        this.addCoin(2700, 600);
+        this.addCoin(3000, 450);
+        this.addCoin(3400, 300);
+        this.addCoin(3550, 600);
 
-
-        const goal = new Goal(2000, 640);
+        const goal = new Goal(3950, 640);
         this.add(goal);
 
     }
