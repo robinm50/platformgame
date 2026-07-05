@@ -60,16 +60,13 @@ export class UI extends ScreenElement {
         if (this.hearts.length === 0) {
             this.saveHighscore();
             this.engine.goToScene("gameover");
-            // console.log("Game Over!");
+           
         }
     }
     resetlevel() {
         this.hearts.forEach(heart => heart.kill());
         this.hearts = [];
         this.scoreLabel.kill();
-        // if (this.highscoreLabel) {
-        //     this.highscoreLabel.kill();
-        // }
         this.createUI();
 
     }

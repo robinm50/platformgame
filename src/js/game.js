@@ -12,7 +12,7 @@ import { Startscene } from './scenes/startscene.js'
 
 
 export class Game extends Engine {
-ui
+
     constructor() {
         super({
             width: 1280,
