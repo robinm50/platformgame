@@ -28,7 +28,7 @@ export class Player extends Actor {
         this.graphics.add("walkright", walkRight)
         this.graphics.add("walkleft", walkLeft)
         this.graphics.use("idle")
-        
+
         this.spawnPos = new Vector(x, y);
         this.pos = new Vector(x, y);
         this.z = 1;
@@ -36,14 +36,11 @@ export class Player extends Actor {
         this.body.useGravity = true;
         this.body.collisionType = CollisionType.Active;
         this.body.limitDegreeOfFreedom.push(DegreeOfFreedom.Rotation);
-
-
-    }
-
-    onInitialize(engine) {
         this.vel = new Vector(0, 0);
 
     }
+
+
 
     reset() {
         this.pos = this.spawnPos.clone();

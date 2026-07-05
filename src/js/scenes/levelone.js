@@ -19,11 +19,11 @@ export class levelOne extends Scene {
 
         this.player = new Player(300, 550);
         this.add(this.player);
-        // this.camera.strategy.lockToActorAxis(this.player, Axis.X);
         this.camera.strategy.lockToActor(this.player);
         this.camera.strategy.limitCameraBounds(
             new BoundingBox(0, -100, 4570, 720)
         );
+        
         this.add(new Background(0));
         this.add(new Background(1536));
         this.add(new Background(3072));
